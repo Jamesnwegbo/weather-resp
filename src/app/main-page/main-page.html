@@ -1,0 +1,146 @@
+<div class="main-page d-flex">
+  <section class="right-side w-75">
+    <div class="head d-flex justify-content-between p-2">
+      <div class="welcome">
+        <h1 class="time-text fs-5">{{ time | date : "hh:mm a" }}</h1>
+        <p class="date-text">{{ time | date : "fullDate" }}</p>
+        <p class="greeting mb-2">
+          @if(greeting() !== 'Good evening!') {<span>
+            <i class="bi bi-sun greeting-icon-day"></i> </span>} @if(greeting() === 'Good evening!') {<span>
+            <i class="bi bi-moon-fill greeting-icon-night"></i> </span>} {{ greeting() }}, {{ firstName | titlecase
+          }}.
+        </p>
+      </div>
+      <div class="exit">
+        <button class="exit-button btn btn-danger text-white mt-2" (click)="exitApp()">
+          Exit <i class="bi bi-door-open-fill"></i>
+        </button>
+      </div>
+    </div>
+    <div class="show d-none">
+        <div class="search-section">
+          <form class="search" [formGroup]="searchForm" (ngSubmit)="getWeatherByCity()">
+            <i class="bi bi-geo-alt"></i>
+            <input type="text" placeholder="Search for a city..." required spellcheck="false" formControlName="city" />
+            <button><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+        <div class="weather-today text-white">
+          <div
+            class="weather-today-details mt-4 d-flex flex-column align-items-center pb-3 pt-3 justify-content-around">
+            <div class="name-section d-flex justify-content-between w-75">
+              <p class="name fs-6">
+                <i class="name-icon bi bi-geo-alt-fill"></i>
+                {{ weatherData?.location?.name }}, <br> {{ weatherData?.location?.country }}
+              </p>
+              <img [src]="flags" alt="Country flag" />
+            </div>
+            <div class="weather-details d-flex flex-column align-items-center justify-content-around">
+              <img [src]="'https:' + weatherData?.current?.condition?.icon" alt="Weather icon" />
+              <p class="date-today">Today, {{ time | date : "d MMMM" }}</p>
+              <p class="temperature fs-1">{{weatherData?.current?.temp_c}}°</p>
+              <p class="weather-description">{{weatherData?.current?.condition?.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="top">
+      <p class="daily-head container">Seven Day Forcast For <span
+          class="daily-name fw-bolder">{{weatherData?.location?.name |
+          titlecase}},</span></p>
+      <div class="weekly-forecast-section container d-flex p-3 justify-content-around overflow-auto">
+        <div class="arrow"><i class="bi bi-cloud-rain"></i></div>
+        <div class="daily d-flex flex-column align-items-center justify-content-between p-3"
+          *ngFor="let day of weatherData?.forecast?.forecastday">
+          <img [src]="'https:' + day?.day?.condition?.icon" alt="daily-weather-icon">
+          <span class="day">{{ day?.date | date : "EEE"}}</span>
+          <span class="temp">{{ day?.day?.maxtemp_c }}°</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom d-flex container justify-content-between">
+      <div class="left container p-3 mt-4">
+        <h5 class="left-head text-decoration-underline fw-bold fs-6">Probability:</h5>
+        <p class="left-desc"> <i class="bi bi-cloud-rain fs-3 text-muted"></i> There is a <span
+            class="rainprob fw-bolder">{{
+            probData?.daily_chance_of_rain
+            }}%</span> chance of rainfall today.</p>
+        <p class="left-desc"> <i class="bi bi-snow2 fs-3 text-muted"></i> There is a <span class="rainprob fw-bolder">{{
+            probData?.daily_chance_of_snow
+            }}%</span> chance of snowfall today.</p>
+      </div>
+      <div class="right container p-3 mt-4">
+        <p class="local-time">The time is <b>{{ weatherData?.location?.localtime | date: 'hh:mm a' }}</b>
+          <br>
+          <b>{{ weatherData?.location?.localtime | date: 'fullDate'}}</b> in <b>{{cityName | titlecase}}</b>
+        </p>
+      </div>
+    </div>
+    <footer class="ft-main bg-info text-white py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-1">🌦️ Weather App</p>
+        <p class="mb-1">Designed & Built by <strong>James</strong></p>
+        <p class="mb-0">&copy; <span id="year">{{ time | date: "yyyy" }}</span> All rights reserved.</p>
+      </div>
+    </footer>
+  </section>
+  <section class="left-side w-25 bg-white container p-3 d-flex flex-column">
+    <div class="search-section">
+      <form class="search" [formGroup]="searchForm" (ngSubmit)="getWeatherByCity()">
+        <i class="bi bi-geo-alt"></i>
+        <input type="text" placeholder="Search for a city..." required spellcheck="false" formControlName="city" />
+        <button><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+    <div class="weather-today text-white">
+      <div class="weather-today-details mt-4 d-flex flex-column align-items-center pb-3 pt-3 justify-content-around">
+        <div class="name-section d-flex justify-content-between w-75">
+          <p class="name fs-6">
+            <i class="name-icon bi bi-geo-alt-fill"></i>
+            {{ weatherData?.location?.name }}, <br> {{ weatherData?.location?.country }}
+          </p>
+          <img [src]="flags" alt="Country flag" />
+        </div>
+        <div class="weather-details d-flex flex-column align-items-center justify-content-around">
+          <img [src]="'https:' + weatherData?.current?.condition?.icon" alt="Weather icon" />
+          <p class="date-today">Today, {{ time | date : "d MMMM" }}</p>
+          <p class="temperature fs-1">{{weatherData?.current?.temp_c}}°</p>
+          <p class="weather-description">{{weatherData?.current?.condition?.text}}</p>
+        </div>
+      </div>
+      <ul class="others d-flex align-items-center justify-content-between overflow-auto">
+        <li>
+          <i class="bi bi-wind"></i>
+          <span> Wind</span>
+          <span>{{weatherData?.current?.wind_kph}}km/h</span>
+        </li>
+        <hr />
+        <li>
+          <i class="bi bi-moisture"></i>
+          <span> Hum</span>
+          <span>{{weatherData?.current?.humidity}}%</span>
+        </li>
+      </ul>
+      <ul class="others2 d-flex align-items-center justify-content-between overflow-auto">
+        <li>
+          <i class="bi bi-sun"></i>
+          <span>Sunrise</span>
+          <small>{{weatherData?.forecast?.forecastday[0]?.astro?.sunrise}}</small>
+        </li>
+        <hr />
+        <li>
+          <i class="bi bi-moon"></i>
+          <span> Sunset</span>
+          <small>{{weatherData?.forecast?.forecastday[0]?.astro?.sunset}}</small>
+        </li>
+      </ul>
+    </div>
+  </section> 
+  <footer class="show bg-info text-white py-4 d-none">
+      <div class="container text-center">
+        <p class="mb-1">🌦️ Weather App</p>
+        <p class="mb-1">Designed & Built by <strong>James</strong></p>
+        <p class="mb-0">&copy; <span id="year">{{ time | date: "yyyy" }}</span> All rights reserved.</p>
+      </div>
+    </footer>
+</div>

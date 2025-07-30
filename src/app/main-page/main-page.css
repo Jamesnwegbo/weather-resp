@@ -1,0 +1,331 @@
+ :host {
+    --text-color1: white;
+    --text-color2: #97e9bf;
+    --text-color4: #26c46e;
+    --text-color3: #86aefe;
+    --background-color1: #86aefe;
+    --background-color2: #f0f5ff;
+    --background-color3: #ffffff;
+    --background-color4: #ff7aac;
+}
+
+.right-side {
+    background-color: var(--background-color2);
+}
+
+.time-text,
+.greeting {
+    color: var(--text-color3);
+}
+
+.head .date-text {
+    margin-bottom: 8px;
+    color: gray;
+    font-size: smaller;
+}
+
+.greeting-icon-day {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+.greeting-icon-night {
+    font-size: 1.2rem;
+    background-color: var(--text-color2);
+    box-shadow: 2px -2px 5px var(--text-color2);
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.exit-button {
+    font-size: 1.2rem;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100px;
+}
+
+.exit-button:hover {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.arrow{    
+    width: 80px;
+    height: 150px;
+    background-color: var(--background-color1);
+    border-radius: 5px;
+    position: relative;    
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.484);
+}
+
+ .arrow i{
+    color: var(--text-color1);
+    animation: blink 2.5s infinite ease-in-out;
+    font-size: 60px;
+    top: 25px;
+    right: 10px;
+    position: absolute;
+}
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.weekly-forecast-section .daily {
+    background-color: var(--background-color3);
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 90px;
+    height: 150px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.484);
+}
+
+.bottom .left,
+.bottom .right {
+    width: 45%;
+    background-color: #f0fff597;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px var(--background-color1)
+}
+
+.left-side .search,
+.show .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid var(--text-color3);
+    border-radius: 10px;
+    background-color: var(--background-color2);
+    width: 90%;
+    padding: 0 5px;
+    margin-left: 5%;
+}
+
+.left-side .search input,
+.show .search input {
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.left-side .search button,
+.show .search button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.show .search button:hover,
+.left-side .search button:hover {
+    scale: 1.2;
+}
+
+.show .search input::placeholder,
+.left-side .search input::placeholder {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.show .search:focus-within,
+.left-side .search:focus-within {
+    box-shadow: 0 0 5px var(--text-color2);
+}
+
+.show .search i,
+.left-side .search i {
+    color: var(--text-color3);
+} 
+
+.name-section img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.weather-today .weather-today-details {
+    background-color: var(--background-color1);
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px var(--background-color1);
+    min-height: 450px;
+    height: fit-content;
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.weather-details {
+    height: 250px;
+}
+
+.weather-details img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px white;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.others {
+    border-radius: 10px;
+    background-color: var(--background-color4);
+    width: 90%;
+    list-style: none;
+    box-shadow: 5px 5px 20px var(--background-color4);
+    margin-left: 5%;
+    margin-top: 50px;
+    padding: 0;
+}
+.others2 {
+    border-radius: 10px;
+    background-color: #ffb769;
+    width: 90%;
+    list-style: none;
+    box-shadow: 5px 5px 20px #ffb769;
+    margin-left: 5%;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.others li,
+.others2 li {
+    display: flex;
+    align-items: center;
+    font-size: x-small;
+    margin: 0 5px;
+}
+
+.others li *,
+.others2 li * {
+    margin: 5px;
+}
+
+.others  hr,
+.others2  hr {
+    width: 1px;
+    height: 15px;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  opacity: 1;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .main-page{
+        flex-direction: column;
+    }
+    .main-page .right-side,
+    .main-page .left-side{
+        width: 100% !important;
+    }
+
+    .exit-button{
+        font-size: small;
+        width: 80px;
+    }
+
+    .bottom .left,
+    .bottom .right{
+        font-size: x-small;
+        margin-bottom: 20px;
+    }
+
+    .ft-main,
+    .left-side .search-section,
+    .left-side .weather-today .weather-today-details {
+        display: none !important;
+    }
+
+    .left-side {
+        background-color: var(--background-color2) !important;
+        padding-top: 10px !important;
+    }
+
+    .left-side .others,
+    .left-side .others2{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .show {
+        display: block !important;
+        font-size: smaller;
+    }
+
+
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+
+    
+}
+/*
+.show .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid var(--text-color3);
+    border-radius: 10px;
+    background-color: var(--background-color2);
+    width: 70%;
+    margin: 10px auto;
+}
+
+.show .search input {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.show .search button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.show {
+    display: none;
+}
+
+
+
+.show .search button:hover {
+    scale: 1.2;
+}
+
+.show .search input::placeholder {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.show .search:focus-within {
+    box-shadow: 0 0 5px var(--text-color2);
+}
+
+.show .search i {
+    color: var(--text-color3);
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+ */

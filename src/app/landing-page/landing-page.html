@@ -1,0 +1,15 @@
+<div class="landing-page">
+    <h1>Personalise Your Experience</h1>
+    <p>Welcome to your personalized weather dashboard! Please enter your first name to get started.</p>
+    <form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="firstName" placeholder="Enter your first name . . ." required minlength="3"
+            formControlName="name" spellcheck="false">
+        <div *ngIf="nameForm.get('name')?.invalid && (nameForm.get('name')?.dirty || nameForm.get('name')?.touched)"
+            class="error">
+            <small *ngIf="nameForm.get('name')?.errors?.['required']">First name is required.</small>
+            <small *ngIf="nameForm.get('name')?.errors?.['minlength']">First name must be at least 3 characters
+                long.</small>
+        </div>
+        <button type="submit">Enter <i class="bi bi-door-open"></i></button>
+    </form>
+</div>

@@ -1,0 +1,87 @@
+:host {
+    --text-color1: white;
+    --text-color2: #97e9bf;
+    --text-color3: #86aefe;
+    --background-color1: #86aefe;
+    --background-color2: #f0f5ff;
+    --background-color3: #ffffff;
+}
+
+.landing-page {
+    margin-top: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.559);
+    backdrop-filter: blur(30px) saturate(150%) contrast(100%);
+    max-width: 300px;
+    margin: 25px auto;
+}
+
+.landing-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-color1);
+}
+
+.landing-page p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color1);
+    margin-bottom: 50px;
+}
+
+.landing-page form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.landing-page input {
+    border: var(--background-color1) 2px solid;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+}
+
+.landing-page input::placeholder {
+    font-style: italic;
+}
+.landing-page input:focus {
+    border-color: var(--text-color1);
+    box-shadow: 0 0 10px var(--text-color1);
+}
+
+.landing-page .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: calc(-10px);
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.landing-page button {
+    background-color: var(--background-color1);
+    color: var(--text-color1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.landing-page button:hover {
+    /* background-color: #81c4e1; */
+    box-shadow: 0 0 20px #81c4e1;
+}
