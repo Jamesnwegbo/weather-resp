@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class Shared {
-  baseUrlForecast = 'http://api.weatherapi.com/v1/forecast.json?key=';
+  baseUrlForecast = 'https://api.weatherapi.com/v1/forecast.json?key=';
   apiKeyForecast = '1df8ce96ab104b33913144051252407';
   flagsApiUrl = 'https://restcountries.com/v3.1/name/';
   firstName: any = localStorage.getItem('firstName');
