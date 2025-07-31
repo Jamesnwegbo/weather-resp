@@ -1,4 +1,4 @@
-<div class="main-page d-flex">
+<div class="main-page d-flex" *ngIf="weatherData, else loading">
   <section class="right-side w-75">
     <div class="head d-flex justify-content-between p-2">
       <div class="welcome">
@@ -144,3 +144,10 @@
       </div>
     </footer>
 </div>
+
+<ng-template #loading>
+  <!-- Skeleton UI -->
+  <div class="skeleton skeleton-title"></div>
+  <div class="skeleton skeleton-line"></div>
+  <div class="skeleton skeleton-box"></div>
+</ng-template>

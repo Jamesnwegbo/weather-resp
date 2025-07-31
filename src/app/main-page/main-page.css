@@ -266,66 +266,37 @@
 
     
 }
-/*
-.show .search {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: 2px solid var(--text-color3);
-    border-radius: 10px;
-    background-color: var(--background-color2);
-    width: 70%;
-    margin: 10px auto;
+
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  animation: pulse 1.5s infinite;
 }
 
-.show .search input {
-    width: 60%;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    background-color: transparent;
+.skeleton-title {
+  width: 50%;
+  height: 24px;
 }
 
-.show .search button {
-    padding: 10px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
+.skeleton-line {
+  width: 100%;
+  height: 16px;
 }
 
-.show {
-    display: none;
+.skeleton-box {
+  width: 100%;
+  height: 120px;
 }
 
-
-
-.show .search button:hover {
-    scale: 1.2;
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-.show .search input::placeholder {
-    font-size: 10px;
-    font-style: italic;
-}
-
-.show .search:focus-within {
-    box-shadow: 0 0 5px var(--text-color2);
-}
-
-.show .search i {
-    color: var(--text-color3);
-    margin-left: 10px;
-}
-
-
-
-
-
-
-
-
-
-
- */
